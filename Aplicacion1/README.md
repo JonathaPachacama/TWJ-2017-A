@@ -49,14 +49,14 @@ String hola "Hola Mundo"
 >>>sail new Aplication
 >>>cd Aplication
 >>>sails lift
-
-
-```
-
-OTRO EJEMPLO
+2
 
 ```
-var 0 = a
+
+escojemos la opcion 2 y damos enter
+
+```javascript
+var 5
 ```
 
 
