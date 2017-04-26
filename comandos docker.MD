@@ -95,3 +95,8 @@ Este comando **detiene** los o el  contenedor que este **corriendo**.
   
   - 3306 de la **derecha** es el puerto para acceder en la maquina **host**
  
+## Postgresql
+
+```
+>> docker run --name postgresadrian -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=adrian -e POSTGRES_DB=politecnica -p 5432:5432 -d postgres
+```
