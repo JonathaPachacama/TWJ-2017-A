@@ -9,6 +9,8 @@ module.exports = {
 
   attributes: {
 
+    connection: 'conexionPostgresqlDocker',
+
     nombre:{
       type : 'String'
 

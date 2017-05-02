@@ -29,3 +29,17 @@ Donde  **Aplicacion** es el nombre de la carpeta
 
 - Sails nos pregunta algunas opciones, vamos a escoger por defecto la 
 **opcion 2**  si tenemos versions de sail menores de las v11
+
+
+## sails generate api
+ 
+
+ 
+ 
+ ```
+ >> sails generate api <nombreDelModelo>
+ ```
+ 
+- Debemos de estar **dentro de la carpeta** del proyecto de sails
+
+- crea los modelos
