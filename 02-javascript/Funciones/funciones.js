@@ -29,3 +29,64 @@ function  multiplicar2(a,b) {
 }
 
 console.log(multiplicar2(4,3)); //imprime 12
+
+
+
+//var dos = multiplicar2(1,2);
+
+var dos = multiplicar2(1,2);
+
+    console.log(dos);
+
+    var multiplicacion = multiplicar2;
+
+    console.log(multiplicacion(4,6));
+
+
+//no es necesario poner un nombre a la funcion a esas se le llaman funciones anonimas
+var hola = function () {
+    console.log('hola')
+
+}
+
+hola(); //imprime hola
+
+
+
+console.log(hola()); //si imprimimos una funcion ke es void devuelve undefined
+
+
+var resultado = hola(); //igualando el undefie¡ned ke nos salio, imprime undefiened
+
+console.log(resultado); //devuelve undefiened
+
+console.log('Hola: ',hola);  //devuelve la definicion de la funcion
+
+
+
+
+
+//mandar funciones como parametros  (muy raro)
+
+function hazAlgo(algo) {
+    algo()
+}
+
+hazAlgo(function () {console.log('hola')});
+hazAlgo(function () {return 2});
+
+
+/*funcion generica para transformar un numero, en los parametros ponemor primero el numer y despues la funcion de trasformar
+
+function transformarNumero(numero,transformacion) {
+    transformacion(numero);
+}*/
+
+
+transformarNumero(5,function (numero)  {
+    return numero * 2;
+    })
+
+transformarNumero(8,function (numero)  {
+        return numero / 2;
+})
