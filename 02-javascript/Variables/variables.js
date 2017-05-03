@@ -12,54 +12,46 @@
 
 var dos = 2;
 var tres = 3;
+var quince = 15;
+var diezYSiete = 17;
 
 console.log(dos);
 console.log(tres);
+console.log(quince);
+console.log(diezYSiete);
+
 
 //float
+
 var dosPuntoCinco = 2.5;
 console.log(dosPuntoCinco);
 
 
-/*todos los demas
+//todos los demas
 
+var verdaderoOFalso = true;
+var falso = false;
+var nombre = 'Adrian';
+var negativo = -4;
+var fechaNacimiento = new Date();
 
- var cuatro  string = 4;
+var cuatroString = '4';
+cuatroString = 4;
+cuatroString = true;
+cuatroString = false;
+cuatroString = -5432;
+cuatroString = new Date();
+cuatroString = undefined;
+cuatroString = null;
 
-
-//cuatroString =4;
+console.log(cuatroString);
 
 var variable;
-
 
 console.log(variable);
 
 var numero2 = 2;
-console.log()
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(typeof numero2);
 
 
 
