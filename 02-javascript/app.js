@@ -24,11 +24,25 @@ var jonathan = {
     },
     ano:function () {
         return this.fechaNacimiento.getFullYear();
+    },
+    diferenciaEdad:function (edadAComparar) {
+        //return Math.abs(edadAComparar-this.fechaNacimiento.getFullYear())  una forma
+        var resultado = edadAComparar-this.fechaNacimiento.getFullYear();  // otra forma
+
+        if(resultado<0){
+            return resultado*-1
+        }else{
+            return resultado
+        }
+
     }
 
-}
+};
 
 
 //jonathan.imprimir()
 
-console.log(jonathan.ano());
+//console.log(jonathan.ano());
+
+
+console.log(jonathan.diferenciaEdad(1992));
