@@ -15,20 +15,20 @@ var jonathan = {
 
     nombre:"Jonathan",
     apellido:"Pachacama",
-    //fechaNacimiento:new Date(),
+    fechaNacimiento:new Date(),
     imprimir:function () {
 
         //console.log(adrian.nombre,adrian.apellido) una forma
         console.log(this.nombre,this.apellido) //this me dice que me coja del objeto, poner nombres no es buena idea
 
     },
-    //ano:function () {
-      //  return this.fechaNacimiento.getFullYear()
-    //}
+    ano:function () {
+        return this.fechaNacimiento.getFullYear();
+    }
 
 }
 
 
-jonathan.imprimir()
+//jonathan.imprimir()
 
-
+console.log(jonathan.ano());
