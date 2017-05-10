@@ -20,4 +20,3 @@ let notasDeSupletorio = arreglo
 console.log(notasDeSupletorio);
 
 
-//fla
