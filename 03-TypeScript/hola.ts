@@ -72,17 +72,52 @@ class Persona {
 
     public imprimirPersona():UsuarioLogin{
         console.log(this.nombre,this.apellido);
-
+        this.imprimirNombre(this.nombre);
         return{
             nombre:this.nombre,
             apellido:this.apellido
         }
-
-
     }
+
+
+    private imprimirNombre(nombre:string,apellido?:string):void{
+
+        if(apellido){
+            console.log(nombre,apellido);
+        }else{
+            console.log(nombre)
+        }
+    }
+
+
+
 
 }
 
+
+
+
+
+
+//funciones
+
+function SumarNumeros (numero1:number,numero2:number):number{
+    return numero1 + numero2;
+}
+
+
+
+
+
+
+//podemos escribir como en javascript
+
+var objeto = {
+        nombre:"adrian",
+        imprimirNombre:function(){
+            return this.nombre;
+        }
+};
 
 
 

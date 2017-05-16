@@ -42,6 +42,18 @@ var Persona = (function () {
     }
     Persona.prototype.imprimirPersona = function () {
         console.log(this.nombre, this.apellido);
+        return {
+            nombre: this.nombre,
+            apellido: this.apellido
+        };
+    };
+    Persona.prototype.imprimirNombre = function (nombre, apellido) {
+        if (apellido) {
+            console.log(nombre, apellido);
+        }
+        else {
+            console.log(nombre);
+        }
     };
     return Persona;
 }());
@@ -52,3 +64,4 @@ jonathan.apellido = "Pachacama";
 jonathan.fechaNacimiento = new Date("1992-4-02");
 //console.log(jonathan);
 jonathan.imprimirPersona();
+//------------
