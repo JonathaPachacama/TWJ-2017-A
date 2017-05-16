@@ -70,8 +70,13 @@ class Persona {
 
     }
 
-    public imprimirPersona():void{
+    public imprimirPersona():UsuarioLogin{
         console.log(this.nombre,this.apellido);
+
+        return{
+            nombre:this.nombre,
+            apellido:this.apellido
+        }
 
 
     }
