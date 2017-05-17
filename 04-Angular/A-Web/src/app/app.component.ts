@@ -10,11 +10,15 @@ import { Component } from '@angular/core';
      `,*/
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   //title = 'Funciona!!';
   //saludo = '    Hola amigos';
   //nombre = 'jonathan';
   //apellido = 'pachacama';
+
+  url:string="httpa://angular.io";
 
   usuario:UsuarioInt = {
     nombre:"Jonathan",
