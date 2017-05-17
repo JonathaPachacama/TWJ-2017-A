@@ -19,6 +19,7 @@ export class AppComponent {
   //apellido = 'pachacama';
 
   url:string="httpa://angular.io";
+  src:string="http://res.cloudinary.com/buddahbelly/image/upload/v1423072364/brilliantbritz/angular-js.png";
 
   usuario:UsuarioInt = {
     nombre:"Jonathan",

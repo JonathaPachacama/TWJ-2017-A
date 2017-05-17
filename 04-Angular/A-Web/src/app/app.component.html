@@ -26,8 +26,10 @@ NO HACER ESTO
 <h3>{{usuario.nombre +" " + usuario.apellido}}
   </h3>
 
-<a href="{{url}}">
 
-  <img src="http://res.cloudinary.com/buddahbelly/image/upload/v1423072364/brilliantbritz/angular-js.png" alt="Logo Angular">
+<!-- no usar:  <a href="{{url}}">  (no recomendado)-->
+<a [href]="url">
+
+  <img [src]="src" alt="Logo Angular">
 
 </a>
