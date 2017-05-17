@@ -2,14 +2,45 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'twj-raiz',
-  templateUrl: './app.component.html',
+  //templateUrl: './app.component.html',
+
+  template: `
+      <h1>Hola</h1>
+    
+     `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Funciona!!';
-  saludo = '    Hola amigos';
-  nombre = 'jonathan';
-  apellido = 'pachacama';
+  //title = 'Funciona!!';
+  //saludo = '    Hola amigos';
+  //nombre = 'jonathan';
+  //apellido = 'pachacama';
+
+  usuario:UsuarioInt = {
+    nombre:"Jonathan",
+    apellido:"Pachacama"
+  }
+
+  constructor(){
+    console.log("constructor");
+    this.holaMundo();
+    console.log(this.saludar(this.usuario.nombre,this.usuario.apellido));
+
+  }
+
+  holaMundo(){
+    console.log("Hola mundo");
+  }
+  saludar(nombre:string,
+          apellido?:string):string{
+    return `Hola ${nombre} ${apellido}`;
+  }
+
+}
 
 
+
+interface UsuarioInt{
+  nombre:string,
+  apellido:string
 }
