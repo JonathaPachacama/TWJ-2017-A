@@ -60,12 +60,8 @@ var 5
 ```
 
 
+
 ## Header2
 ### Header3
+[Sails](http://sailsjs.org) application
 
-a [Sails](http://sailsjs.org) application
-
-
-
-sails new Aplication1
-sails lift
