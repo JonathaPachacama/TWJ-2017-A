@@ -9,6 +9,11 @@ p {
 p {
   border-color: brown;
 }
+p:hover{
+ border-color:white;
+}
+
+
 h1 {
   color:white;
   background-color: #000;

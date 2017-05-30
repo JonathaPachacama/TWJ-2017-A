@@ -37,11 +37,11 @@ export class AppComponent {
     // this.holaMundo();
     // console.log(this.saludar(this.usuario.nombre,this.usuario.apellido));
 
-    this.usuario.nombre = "Adrian";
+    this.usuario.nombre = "Jonathan";
         this.parrafo = "Mi mama me mima";
 
           setTimeout(()=>{
-              this.usuario.nombre = "Vicente"
+              this.usuario.nombre = "Jonathan"
 
              },3000);
 
