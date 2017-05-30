@@ -20,6 +20,7 @@ export class AppComponent {
     apellido:"Pachacama"
   };
   parrafo:string = "";
+  background:string = "blue";
   // title = 'Funciona!!';
   // saludo = '    Hola amigos';
   // nombre = 'jonathan';

@@ -14,12 +14,22 @@
 <p>{{parrafo}}</p>
 <h3>Segunda forma con []</h3>
 
-<p [style.color]="'green'" [innerText]="parrafo"></p>
+<!--<p [style.color]="'green'" [innerText]="parrafo"></p>-->
 
+<p [style.color]="'white'"
+       [style.background-color]="background"
+       [innerText]="parrafo"></p>
 <input type="text" [value]="parrafo">
 
 
 
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
 
 <p>Mantiene sincronizadas las variables
   del componente en el html</p>
