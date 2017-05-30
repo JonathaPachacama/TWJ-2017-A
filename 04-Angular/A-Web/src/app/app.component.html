@@ -1,23 +1,72 @@
-<h1>
-  {{title}}
-  {{saludo}}
-  {{nombre}}
-  {{apellido}}
+<!--<h1>-->
+  <!--{{title}}-->
+  <!--{{saludo}}-->
+  <!--{{nombre}}-->
+  <!--{{apellido}}-->
 
   <h1>Mi primer aplicacion en Angular</h1>
 
-</h1>
+<!--</h1>-->
+
+<h2>Property Binding</h2>
+
+<h3>Primera forma con llaves dobles </h3>
+<p>{{parrafo}}</p>
+<h3>Segunda forma con []</h3>
+
+<!--<p [style.color]="'green'" [innerText]="parrafo"></p>-->
+
+<p [style.color]="'white'"
+       [style.background-color]="background"
+       [innerText]="parrafo"></p>
+<input type="text" [value]="parrafo">
+
+
+
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
+
+<app-estilo></app-estilo>
+
+<p>Mantiene sincronizadas las variables
+  del componente en el html</p>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 
 <!-- <p>Gracias por visitarnos</p> -->
 SI HACER ESTO
 <p>Gracias por visitarnos {{usuario.nombre}} {{usuario.apellido}}</p>
 
-<!--<h3>Desarrollado por {{usuario.nombre}}</h3>-->
+<h3>Desarrollado por {{usuario.nombre}}</h3>
 
 
 NO HACER ESTO
-<h3>Desarrollado por {{
+<h3>Desarrollado por
+
+  {{
     saludar(usuario.nombre,usuario.apellido)}}
 
   </h3>
