@@ -8,23 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class InicioComponent implements OnInit {
 
   nombre: string = "Jonathan";
-  //command + a(para seleccionas) y luedo comman command+alt+l
-  // arregloUsuarios = [
-  //   {
-  //     nombre:"Jonathan",
-  //     apellido:"pachacama",
-  //     conectado:true
-  //   },
-  //   {
-  //     nombre:"Mashi",
-  //     apellido:"correa",
-  //     conectado:true
-  //   },
-  //   {
-  //     nombre: "Abdala",
-  //     apellido: "Bucaran",
-  //     conectado:false
-  //   }];
+  // command + a(para seleccionas) y luedo comman command+alt+l
+  arregloUsuarios = [
+    {
+      nombre:"Jonathan",
+      apellido:"pachacama",
+      conectado:true
+    },
+    {
+      nombre:"Mashi",
+      apellido:"correa",
+      conectado:true
+    },
+    {
+      nombre: "Abdala",
+      apellido: "Bucaran",
+      conectado:false
+    }];
 
 
   constructor() {
