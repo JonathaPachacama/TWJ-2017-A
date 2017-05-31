@@ -263,46 +263,51 @@
  +-->
 
 <!--/////////////////////////////////////////////////////CLASE3-->
-<!--<div class="container">-->
+<div class="container">
 
-   <!--&lt;!&ndash;<input placeholder="Ingrese text0" type="text" [value]="nombre" #nombreEtiqueta>{{nombre}}&ndash;&gt;-->
+  <input type="text" [value]="nombre">{{nombre}}
+  <br>
+  <button class="btn btn-primary" (click)="cambiarNombre()">Cambiar valor</button>
+  <button (blur)="cambiarOtroNombre()">Clikeame</button>
+
+  <h1 (click)="cambiarOtroNombre()">Lenin a Rfico</h1>
+  <!--<input placeholder="Ingrese text0" type="text" [value]="nombre" #nombreEtiqueta>{{nombre}}-->
 
 <!--&lt;!&ndash;BANANA BOX MODEL&ndash;&gt;-->
 
   <!--<input placeholder="Ingrese texto" type="text" [ngModel]="nombre" #nombreEtiqueta>{{nombre}}-->
   <!--<img [src]="nombre" alt="">-->
   <!--<br>-->
-  <!--<button class="btn btn-primary" (click)="cambiarNombre()">Cambiar valor</button>-->
-  <!--<button (blur)="cambiarOtroNombre()">Clikeame</button>-->
 
-  <!--&lt;!&ndash;<h1 (click)="cambiarOtroNombre()">Lenin a Rfico</h1>&ndash;&gt;-->
+
+  <!---->
   <!--<h1 (click)="cambiarOtroInput(nombreEtiqueta)">Lenin a Rfico</h1>-->
 
-<!--</div>-->
+</div>
 
 <!--//////////////////////////cuatro-->
 
-<div class="container">
-<h1>Bienvenidos</h1>
- <h2>Usuarios conectados</h2>
+<!--<div class="container">-->
+<!--<h1>Bienvenidos</h1>-->
+ <!--<h2>Usuarios conectados</h2>-->
 
-  <div class="row">
-    <div class="col-sm-4" *ngFor="let usuario of arregloUsuarios">
-      <div class="card" style="with: 20rem">
-        <div class="card-block">
-          <h4 class="card-title">{{usuario.nombre}}</h4>
-          <p class="card-text">{{usuario.nombre}}+{{usuario.apellido}}</p>
-          <a href="#" class="btn btn-primary btn-block">ir al perfil</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--<div class="row">-->
+    <!--<div class="col-sm-4" *ngFor="let usuario of arregloUsuarios">-->
+      <!--<div class="card" style="with: 20rem">-->
+        <!--<div class="card-block">-->
+          <!--<h4 class="card-title">{{usuario.nombre}}</h4>-->
+          <!--<p class="card-text">{{usuario.nombre}}+{{usuario.apellido}}</p>-->
+          <!--<a href="#" class="btn btn-primary btn-block">ir al perfil</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div>
-  <ul>
-    <li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>
-  </ul>
-  </div>
+  <!--<div>-->
+  <!--<ul>-->
+    <!--<li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>-->
+  <!--</ul>-->
+  <!--</div>-->
 
 
-</div>
+<!--</div>-->
