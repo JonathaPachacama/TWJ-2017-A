@@ -263,25 +263,29 @@
  +-->
 
 <!--/////////////////////////////////////////////////////CLASE3-->
-<div class="container">
 
-  <input type="text" [value]="nombre">{{nombre}}
+<!--etiquetas de evento y data binding-->
+<!--<div class="container">-->
+  <!--<input type="text" [value]="nombre">{{nombre}}-->
+  <!--<br>-->
+  <!--<button class="btn btn-primary" (click)="cambiarNombre()">Cambiar valor</button>-->
+  <!--<button (blur)="cambiarOtroNombre()">Clikeame</button>-->
+
+  <!--<h1 (click)="cambiarOtroNombre()">Lenin a Rfico</h1>-->
+<!--</div>-->
+
+<!--con vistas al componete-->
+<div class="container">
+  <!--<input placeholder="Ingrese texto" type="text" [value]="nombre" #nombreEtiqueta>{{nombre}}-->
+
+<!--BANANA BOX MODEL-->
+
+  <input placeholder="Ingrese texto" type="text" [ngModel]="nombre">{{nombre}}
+  <img [src]="nombre" alt="">
   <br>
   <button class="btn btn-primary" (click)="cambiarNombre()">Cambiar valor</button>
-  <button (blur)="cambiarOtroNombre()">Clikeame</button>
-
-  <h1 (click)="cambiarOtroNombre()">Lenin a Rfico</h1>
-  <!--<input placeholder="Ingrese text0" type="text" [value]="nombre" #nombreEtiqueta>{{nombre}}-->
-
-<!--&lt;!&ndash;BANANA BOX MODEL&ndash;&gt;-->
-
-  <!--<input placeholder="Ingrese texto" type="text" [ngModel]="nombre" #nombreEtiqueta>{{nombre}}-->
-  <!--<img [src]="nombre" alt="">-->
-  <!--<br>-->
-
-
-  <!---->
-  <!--<h1 (click)="cambiarOtroInput(nombreEtiqueta)">Lenin a Rfico</h1>-->
+  <button (blur)="cambiarOtroNombre()">Clickeame</button>
+  <h1 (click)="cambiarNombreInput(nombreEtiqueta)">Lenin a Rafico</h1>
 
 </div>
 
