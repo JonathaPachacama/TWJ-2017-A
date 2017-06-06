@@ -17,7 +17,10 @@ import { InicioComponent } from './Componentes/inicio/inicio.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  // providers: [],
+  providers: [
+        // http
+  ],
   //bootstrap: [AppComponent]
   bootstrap: [InicioComponent]
 })
