@@ -11,6 +11,7 @@ export class InicioComponent implements OnInit {
 
   nombre: string = "Jonathan";
   planetas : PlanetaStarWars[] =[];
+  // planetas2 : Array<PlanetaStarWars> =[];  // otra forma de hacer un arreglo en typescript
   // command + a(para seleccionas) y luedo comman command+alt+l
   arregloUsuarios = [
     {
@@ -69,16 +70,21 @@ export class InicioComponent implements OnInit {
       .subscribe(
         (response)=>{
           console.log("Response:",response);
-
           console.log(response.json());
-
           let respuesta = response.json();
-
           console.log(respuesta.next);
-
           this.planetas = respuesta.results;
+          this.planetas = this.planetas.map(
+            (planeta)=>{
+              planeta.imagenURL2 = "/assets/imagenes/"+ planeta.name+'.jpg';
+              return planeta
+            }
+          );
 
-
+          //Arreglo que tengo
+          //MUTARLE
+          //MISMO ARREGLO CON UN NUEVO ATRIBUTO
+          //IMAGEN
 
         },
         (error)=>{
@@ -95,6 +101,8 @@ export class InicioComponent implements OnInit {
 
 
 interface PlanetaStarWars{
+  imagenURL2?: string;
+  imagenURL: string;
   name:string,
   rotation_period: string;
   orbital_period: string;

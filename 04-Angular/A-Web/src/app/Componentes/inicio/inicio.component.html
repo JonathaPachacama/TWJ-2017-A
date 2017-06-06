@@ -297,8 +297,8 @@
 
 <!--directiva ngFor-->
 
-<div class="container" style="background-color: #222;   color: #ffffff;">
-  <h1>Bienvenidos</h1>
+<!--<div class="container">-->
+  <!--<h1>Bienvenidos</h1>-->
   <!--<h2>Usuarios conectados</h2>-->
 
   <!--<div class="row">-->
@@ -312,11 +312,6 @@
   <!--</div></div>-->
   <!--</div>-->
   <!--</div>-->
-
-  <h2>Planetas de Star wars</h2>
-  <br>
-  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
-
   <!--<div class="row">-->
   <!--<div *ngFor="let planeta of planetas">-->
   <!--<div class="col-md-6">-->
@@ -346,11 +341,19 @@
   <!--<p *ngIf="null">NULL</p>-->
   <!--<p *ngIf="0">CERO</p>-->
   <!--<p *ngIf="nombre">NOMBRE</p>-->
+<!--</div>-->
 
-  <!--deber -->
+  <!--////////////////////////////////////////////////////////deber -->
+
+  <div class="container" style="background-color: #222;   color: #ffffff;">
+    <h1>Bienvenidos</h1>
+  <h2>Planetas de Star wars</h2>
+  <br>
+  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+
   <br>
   <ul id="lista">
-    <li *ngFor="let planetas of planetas">
+    <li *ngFor="let planetas of planetas; let indice = index">  {{indice}} - {{planetas.name}} - <img [src]="planetas.imagenURL2" alt="">
       <div class="row">
         <div class="col-sm-6">
           <div class="imgplaneta" *ngIf="planetas.name=='Alderaan'" >
