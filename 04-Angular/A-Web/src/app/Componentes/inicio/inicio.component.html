@@ -297,21 +297,21 @@
 
 <!--directiva ngFor-->
 
-<div class="container">
+<div class="container" style="background-color: #222;   color: #ffffff;">
   <h1>Bienvenidos</h1>
-  <h2>Usuarios conectados</h2>
+  <!--<h2>Usuarios conectados</h2>-->
 
-  <div class="row">
-    <div  *ngFor="let usuario of arregloUsuarios">
-      <div class="col-sm-4" *ngIf="usuario.conectado"><div class="card" style="with: 20rem">
-        <div class="card-block">
-          <h4 class="card-title">{{usuario.nombre}}- {{usuario.conectado}}</h4>
-          <p class="card-text">{{usuario.nombre}}+{{usuario.apellido}}</p>
-          <a href="#" class="btn btn-primary btn-block">ir al perfil</a>
-        </div>
-      </div></div>
-    </div>
-  </div>
+  <!--<div class="row">-->
+  <!--<div  *ngFor="let usuario of arregloUsuarios">-->
+  <!--<div class="col-sm-4" *ngIf="usuario.conectado"><div class="card" style="with: 20rem">-->
+  <!--<div class="card-block">-->
+  <!--<h4 class="card-title">{{usuario.nombre}}- {{usuario.conectado}}</h4>-->
+  <!--<p class="card-text">{{usuario.nombre}}+{{usuario.apellido}}</p>-->
+  <!--<a href="#" class="btn btn-primary btn-block">ir al perfil</a>-->
+  <!--</div>-->
+  <!--</div></div>-->
+  <!--</div>-->
+  <!--</div>-->
 
   <h2>Planetas de Star wars</h2>
   <br>
@@ -325,11 +325,11 @@
   <!--<h1>{{planeta.name}}</h1>-->
   <!--</div>-->
   <!--</div>-->
-  <div>
-    <ul>
-      <li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>
-    </ul>
-  </div>
+  <!--<div>-->
+  <!--<ul>-->
+  <!--<li *ngFor="let usuario of arregloUsuarios">{{usuario.nombre}}</li>-->
+  <!--</ul>-->
+  <!--</div>-->
 
 
   <!--ngIf-->
@@ -346,5 +346,73 @@
   <!--<p *ngIf="null">NULL</p>-->
   <!--<p *ngIf="0">CERO</p>-->
   <!--<p *ngIf="nombre">NOMBRE</p>-->
+
+  <!--deber -->
+  <br>
+  <ul id="lista">
+    <li *ngFor="let planetas of planetas">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="imgplaneta" *ngIf="planetas.name=='Alderaan'" >
+            <img src="http://images2.wikia.nocookie.net/__cb20100207072546/masseffect/images/thumb/7/7d/2175_aeia.jpg/320px-2175_aeia.jpg" width="270" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Yavin IV'">
+            <img src="https://vignette4.wikia.nocookie.net/es.starwars/images/a/a0/Eaw_Yavin4.jpg/revision/latest/scale-to-width-down/350?cb=20080127231835" width="270" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Hoth'">
+            <img src="https://vignette4.wikia.nocookie.net/starwars/images/1/1d/Hoth_SWCT.png/revision/latest?cb=20160630022322" width="270" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Dagobah'">
+            <img src="https://s-media-cache-ak0.pinimg.com/originals/72/76/16/727616fdc990d43935ce284c695000d0.jpg" width="290" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Bespin'">
+            <img src="https://vignette3.wikia.nocookie.net/starwars/images/2/2c/Bespin_EotECR.png/revision/latest/scale-to-width-down/500?cb=20170222012550" width="270" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Endor'">
+            <img src="http://www.theforce.net/swtc/Pix/diagram/endorsys1.jpg" width="350" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Naboo'">
+            <img src="https://vignette2.wikia.nocookie.net/starwars/images/3/3c/Naboo.png/revision/latest?cb=20071124184023" width="300" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Coruscant'">
+            <img src="http://vignette1.wikia.nocookie.net/starwars/images/1/16/Coruscant-EotE.jpg/revision/latest?cb=20130908205521" width="290" height="270" alt="">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Kamino'">
+            <img src="https://vignette2.wikia.nocookie.net/swfanon/images/6/6b/Kamino_planet.jpg/revision/latest?cb=20070218002841" width="300" height="270" alt="" style="border: groove">
+          </div>
+          <div class="imgplaneta" *ngIf="planetas.name=='Geonosis'">
+            <img src="https://www.universeguide.com/pictures/geonosis.jpg" width="280" height="270" alt="">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h2 class="nombre"><br><br><br>{{planetas.name}}</h2>
+        </div>
+
+      </div>
+      <br>
+      <div class="datosplanetas">
+        <p>Periodo de Rotacion:  {{planetas.rotation_period}}</p>
+        <p>Periodo Orbital: {{planetas.orbital_perio}}</p>
+        <p>Diametro: {{planetas.diameter}}</p>
+        <p>Clima: {{planetas.climate}}</p>
+        <p>Gravedad: {{planetas.gravity}}</p>
+        <p>Terrono: {{planetas.terrain}}</p>
+        <p>Superficie del Agua: {{planetas.surface_water}}</p>
+        <p>Poblacion: {{planetas.population}}</p>
+        <p>Residentes: {{planetas.residents}}</p>
+        <p>Films: {{planetas.films}}</p>
+        <p>Creado: {{planetas.created}}</p>
+        <p>Editado: {{planetas.edited}}</p>
+        <p>URL: {{planetas.url}}</p>
+        <br>
+        <br>
+      </div>
+
+    </li>
+  </ul>
+
+
+
+
 </div>
 
