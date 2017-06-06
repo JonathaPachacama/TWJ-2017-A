@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/map';
 export class InicioComponent implements OnInit {
 
   nombre: string = "Jonathan";
-  planetas : PlanetaStarWars[] =[];
+  planetas : PlanetaStarWarsInterface[] =[];
   // command + a(para seleccionas) y luedo comman command+alt+l
   arregloUsuarios = [
     {
@@ -77,6 +78,20 @@ export class InicioComponent implements OnInit {
           console.log(respuesta.next);
 
           this.planetas = respuesta.results;
+          this.planetas = this.planetas.map(
+            (planeta)=>{
+
+              // planeta.imagenURL2 = "/assets/Imagenes/"+planeta.name+'.jpg';
+
+              return planeta;
+
+            }
+          );
+
+          //Arreglo que tengo
+          // MUTARLE
+          // MISMO ARREGLO CON UN NUEVO ATRIBUTO
+          // IMAGEN
 
 
 
@@ -94,23 +109,23 @@ export class InicioComponent implements OnInit {
 }
 
 
-interface PlanetaStarWars{
-  name:string,
-  rotation_period: string;
-  orbital_period: string;
-  diameter: string;
-  climate: string;
-  gravity: string;
-  terrain: string;
-  surface_water: string;
-  population: string;
-  residents: string[];
-  films: string[];
-  created: Date;
-  edited: Date;
-  url: string;
-
-}
+// interface PlanetaStarWars{
+//   name:string,
+//   rotation_period: string;
+//   orbital_period: string;
+//   diameter: string;
+//   climate: string;
+//   gravity: string;
+//   terrain: string;
+//   surface_water: string;
+//   population: string;
+//   residents: string[];
+//   films: string[];
+//   created: Date;
+//   edited: Date;
+//   url: string;
+//
+// }
 
 
 
