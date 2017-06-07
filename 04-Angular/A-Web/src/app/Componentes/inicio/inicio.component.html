@@ -425,6 +425,22 @@
 <div class="container" >
   <h1>Bienvenidos</h1>
 
+  <h2>Usuarios</h2>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <pre>
+          {{ nuevoUsuario |json}}
+        </pre>
+        <label class="col-form-label">Text</label>
+        <input class="form-control"
+               placeholder="Ingrese nuevo nombre"
+               [(ngModel)]="nuevoUsuario.nombre" type="text">
+      </div>
+      <button class="btn btn-success" (click)="crearUsuario()">Crear usuario</button>
+    </div>
+  </div>
   <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
 
   <div class="row">
