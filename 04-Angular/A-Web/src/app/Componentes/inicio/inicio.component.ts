@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
+import {UsuarioClass} from "../../Classes/UsuarioClass";
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -147,11 +148,6 @@ export class InicioComponent implements OnInit {
 //
 // }
 
-class UsuarioClass{
-  nombre:string;
-  constructor(nombre?:string){
-    this.nombre = nombre;
 
-  }
-}
+
 
