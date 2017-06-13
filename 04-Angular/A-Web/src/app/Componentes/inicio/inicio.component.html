@@ -421,33 +421,83 @@
 
 
 <!--</div>-->
+<!--///////////////////////////////////clase 4 13/06/2017-->
 
-<div class="container" >
+<!--<div class="container" >-->
+  <!--<h1>Bienvenidos</h1>-->
+
+  <!--<h2>Usuarios</h2>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-sm-6">-->
+      <!--<div class="form-group">-->
+        <!--<pre>-->
+          <!--{{ nuevoUsuario |json}}-->
+        <!--</pre>-->
+        <!--<label class="col-form-label">Text</label>-->
+        <!--<input class="form-control"-->
+               <!--placeholder="Ingrese nuevo nombre"-->
+               <!--[(ngModel)]="nuevoUsuario.nombre" type="text">-->
+      <!--</div>-->
+      <!--<button class="btn btn-success" (click)="crearUsuario()">Crear usuario</button>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-sm-4" *ngFor="let planeta of planetas;let i = index;">-->
+
+      <!--<app-planeta-star-wars [planeta]="planeta"></app-planeta-star-wars>-->
+
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<!--///////////////////////////deber componentes-->
+
+
+<!--AQUÍ INICIA LO DEL PLANETA DE STAR WARS ---------------------------------  -->
+<!--splice eliminar del arreglo y push para agregar-->
+<div class="container" style="background-color: black">
+  <h2>Planetas</h2>
+  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+  <br>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let planetaVariable of planetas; let i=index; ">
+      <app-planeta-star-wars [planeta]="planetaVariable">
+
+      </app-planeta-star-wars>
+
+    </div>
+  </div>
+
+  <!--Incia el tema de comunicacion entre sails y angular-->
   <h1>Bienvenidos</h1>
-
   <h2>Usuarios</h2>
 
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <pre>
-          {{ nuevoUsuario |json}}
-        </pre>
-        <label class="col-form-label">Text</label>
+      <pre>
+        {{nuevoUsuario | json}}
+      </pre>
+        <label class="col-form-label">Nombre Usuario</label>
         <input class="form-control"
-               placeholder="Ingrese nuevo nombre"
-               [(ngModel)]="nuevoUsuario.nombre" type="text">
+               placeholder="Ingrese nuevo Nombre"
+               [(ngModel)]="nuevoUsuario.nombre" type="text"
+        >
       </div>
-      <button class="btn btn-success" (click)="crearUsuario()">Crear usuario</button>
+      <button class="btn btn-success" (click)="crearUsuario()"  onClick="window.location.reload()">Crear Usuario</button>
     </div>
   </div>
-  <button class="btn btn-outline-success" (click)="cargarPlanetas()">Cargar Planetas</button>
+  <h3>Usuarios:</h3>
 
   <div class="row">
-    <div class="col-sm-4" *ngFor="let planeta of planetas;let i = index;">
-
-      <app-planeta-star-wars [planeta]="planeta"></app-planeta-star-wars>
-
+    <div class="col-sm-3" *ngFor="let usuario of usuarios;let indice = index;">
+      <h3>{{usuario.nombre}}</h3>
+      <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
     </div>
   </div>
+
 </div>

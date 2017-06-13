@@ -7,11 +7,12 @@ import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
   styleUrls: ['./planeta-star-wars.component.css']
 })
 export class PlanetaStarWarsComponent implements OnInit {
-@Input() planeta: PlanetaStarWarsInterface;
+  //Linea agregada PREGUNTAR(Si era decorator)
+  @Input() planeta:PlanetaStarWarsInterface;
+
   constructor() { }
 
   ngOnInit() {
-    console.log('el valor del planeta es:', this.planeta)
+    console.log('El valor del diametros es:',this.planeta);
   }
-
 }

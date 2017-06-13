@@ -2,7 +2,7 @@
  * Created by visitante on 06/06/2017.
  */
 export interface PlanetaStarWarsInterface{
-
+  imagenURL:string,
   name:string,
   rotation_period: string;
   orbital_period: string;
