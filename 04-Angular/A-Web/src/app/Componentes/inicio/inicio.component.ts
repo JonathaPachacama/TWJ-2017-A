@@ -12,6 +12,7 @@ import {UsuarioClass} from "../../Classes/UsuarioClass";
 export class InicioComponent implements OnInit {
 
   nombre: string = "Jonathan";
+  usuarios:UsuarioClass[]=[];
 
   nuevoUsuario: UsuarioClass = new UsuarioClass("");
   planetas : PlanetaStarWarsInterface[] =[];
@@ -46,7 +47,18 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     //Esta listo el componente
-    console.log('Nuevo usuario',this.nuevoUsuario);
+    this._http
+      .post("http://localhost:1337/Usuario")
+      .subscribe(
+        respuesta=>{
+          let rjson = UsuarioClass[]=respuesta.json();
+          this.usuarios = rjson;
+          console.log("Usuarios: ",this.usuarios);
+        },
+        error=>{
+          console.log("Error",error);
+        }
+      )
   }
 
   cambiarNombre():void{
