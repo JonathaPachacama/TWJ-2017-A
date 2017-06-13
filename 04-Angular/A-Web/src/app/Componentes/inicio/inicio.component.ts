@@ -135,6 +135,8 @@ export class InicioComponent implements OnInit {
         respuesta=>{
           let respuestaJson = respuesta.json();
           console.log('respuestaJs: ',respuestaJson);
+          this.usuarios.push(respuestaJson);
+
         },
         error=>{
           console.log("Error",error);
@@ -147,10 +149,11 @@ export class InicioComponent implements OnInit {
     console.log("Indice con index: ", indice);
     console.log("Usuarios : ", this.usuarios);
     console.log("Usuariofff : ", usuario.id);
-    this.usuarios.splice(indice,1);
+
 
     this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
       .subscribe(respuesta=>{
+          this.usuarios.splice(indice,1);
           let respuestaJson=respuesta.json();
           console.log('respuestaJsonoooooo: ',respuestaJson);
         },
