@@ -5,8 +5,8 @@ export class UsuarioClass{
 
   constructor(public  nombre?:string,
                public id?:number,
-                public createAt?:Date,
-                public updateAt?:Date ){
+                public createdAt?:Date,
+                public updatedAt?:Date ){
   }
 
 }
