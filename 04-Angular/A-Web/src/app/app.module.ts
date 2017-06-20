@@ -11,6 +11,7 @@ import { DiameterComponent } from './Componentes/planeta-star-wars/Componentes P
 import { GravityComponent } from './Componentes/planeta-star-wars/Componentes PSW/gravity/gravity.component';
 import { OrbitalPeriodComponent } from './Componentes/planeta-star-wars/Componentes PSW/orbital-period/orbital-period.component';
 import { TerrainComponent } from './Componentes/planeta-star-wars/Componentes PSW/terrain/terrain.component';
+import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TerrainComponent } from './Componentes/planeta-star-wars/Componentes PS
     DiameterComponent,
     GravityComponent,
     OrbitalPeriodComponent,
-    TerrainComponent
+    TerrainComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
