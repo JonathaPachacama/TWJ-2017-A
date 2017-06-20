@@ -194,6 +194,7 @@ export class InicioComponent implements OnInit {
           console.log("El usuario se actualizo");
           let indice = this.usuarios.indexOf(usuario);
           this.usuarios[indice].nombre = nombre;
+          this.usuarios[indice].editar = !this.usuarios[indice].editar;
         },
         err=>{
           //hubo algun problema  (Red servidor)
