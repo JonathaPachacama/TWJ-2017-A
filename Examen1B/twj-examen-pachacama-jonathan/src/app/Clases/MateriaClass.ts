@@ -7,8 +7,8 @@ export class MateriaClass{
               public  NombreMateria?:string,
               public  TopicoMateria?:string,
               public  FechaCreacion?:Date,
-              public createAt?:Date,
-              public updateAt?:Date ){
+              public createdAt?:Date,
+              public updatedAt?:Date ){
   }
 
 }
