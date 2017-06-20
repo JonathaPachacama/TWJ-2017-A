@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Http} from "@angular/http";
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map'; // rxjs(librearia reactiva de javascript)con esta linea importamos el operador map
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 @Component({
@@ -62,7 +62,20 @@ export class InicioComponent implements OnInit {
     this._http.get("http://localhost:1337/Usuario")
       .subscribe(respuesta=>{
           let rjson:UsuarioClass[]=respuesta.json();
-          this.usuarios=rjson;
+          this.usuarios=rjson.map(
+            (usuario:UsuarioClass)=>{
+              //cambiar el usuario
+             usuario.editar = false;
+             return usuario;
+            }
+          );
+        //añadir propiedades a un objeto
+        //   let objeto1:any={
+        //     prop1:1,
+        //     prop2:2
+        //   }
+        //   objeto1.prop3 = 3;
+        // }
           console.log("Usuarios: ",this.usuarios);
         },
         error=>{
@@ -164,27 +177,36 @@ export class InicioComponent implements OnInit {
 
   }
 
+  actualizarUsuario(usuario:UsuarioClass,nombre:string){
+    let actualizacion ={
+      nombre:usuario.nombre
+    };
+    this._http.put(
+      "http://localhost:1337/Usuario/"+usuario.id,actualizacion)
+      .map(
+        (res)=>{
+          return res.json();
+        })
+      //snnippet -> templete de cosgigo para reutilizarlo
+      .subscribe(
+        res=>{
+          //el servidor no dice ke se actualizo
+          console.log("El usuario se actualizo");
+          let indice = this.usuarios.indexOf(usuario);
+          this.usuarios[indice].nombre = nombre;
+        },
+        err=>{
+          //hubo algun problema  (Red servidor)
+          //aki podriamos poner un toaster
+          console.log("Hubo un error",err)
+        }
+      );
+
+  }
+
 
 }
 
-
-// interface PlanetaStarWars{
-//   name:string,
-//   rotation_period: string;
-//   orbital_period: string;
-//   diameter: string;
-//   climate: string;
-//   gravity: string;
-//   terrain: string;
-//   surface_water: string;
-//   population: string;
-//   residents: string[];
-//   films: string[];
-//   created: Date;
-//   edited: Date;
-//   url: string;
-//
-// }
 
 
 

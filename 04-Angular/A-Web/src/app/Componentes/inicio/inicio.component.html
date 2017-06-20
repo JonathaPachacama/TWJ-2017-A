@@ -466,9 +466,7 @@
   <div class="row">
     <div class="col-sm-4" *ngFor="let planetaVariable of planetas; let i=index; ">
       <app-planeta-star-wars [planeta]="planetaVariable">
-
       </app-planeta-star-wars>
-
     </div>
   </div>
 
@@ -479,14 +477,13 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-      <pre>
-        {{nuevoUsuario | json}}
-      </pre>
+        <pre>
+          {{nuevoUsuario | json}}
+        </pre>
         <label class="col-form-label">Nombre Usuario</label>
         <input class="form-control"
                placeholder="Ingrese nuevo Nombre"
-               [(ngModel)]="nuevoUsuario.nombre" type="text"
-        >
+               [(ngModel)]="nuevoUsuario.nombre" type="text">
       </div>
       <button class="btn btn-success" (click)="crearUsuario()" >Crear Usuario</button>
     </div>
@@ -495,9 +492,34 @@
 
   <div class="row">
     <div class="col-sm-3" *ngFor="let usuario of usuarios;let indice = index;">
-      <h3>{{usuario.nombre}}</h3>
-      <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
+      <div *ngIf="!usuario.editar" >
+
+        <h3>{{usuario.nombre}}</h3>
+        <button class="btn btn-warning" (click)="usuario.editar=!usuario.editar">Editar Usuario</button>
+
+      </div>
+      <div *ngIf="usuario.editar">
+
+        <h4>Actualizar</h4>
+        <div class="form-group">
+          <label class="col-form-label">Nombre Usuario</label>
+          <input class="form-control"
+                 placeholder="Ingrese nuevo Nombre"
+                 type="text"
+                 #usuarioNombre>
+        </div>
+        <button class="btn btn-primary" (click)="actualizarUsuario(usuario,usuarioNombre.value)"> Actualizar usuario</button>
+        <button class="btn btn-danger" (click)="eliminarUsuario(usuario,indice)"> Eliminar usuario</button>
+        <button class="btn btn-secundary" (click)="usuario.editar = !usuario.editar"> Cancelar usuario</button>
+      </div>
+      <!--<div class="form-group">-->
+
+      <!--<label class="col-form-label">Nombre Usuario</label>-->
+      <!--<input class="form-control"-->
+      <!--placeholder="Ingrese nuevo Nombre"-->
+      <!--[(ngModel)]="usuario.nombre" type="text">-->
+      <!--</div>-->
     </div>
   </div>
-
 </div>
+
