@@ -1,0 +1,94 @@
+<div
+   align="center"
+  class="container">
+  <br><br>
+  <div style="background-color: #843534; color: white" align="center"
+       class="row-col-md-12">
+    <h1>MATERIAS
+      <img style="width: 5%"
+           src="http://vignette2.wikia.nocookie.net/pokemon/images/e/e1/025Pikachu_OS_anime_4.png/revision/latest?cb=20150101100259"
+           alt="pikachu">
+    </h1>
+  </div>
+  <br><br>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <img style="width: 40%; margin-top: 70px" src="http://imagenpng.com/wp-content/uploads/2017/02/007Squirtle_Pokem.png" alt="">
+    </div>
+    <div style="border-style: double;border-color: #d0d5d8;width:20%;" class="col-sm-4">
+      <br>
+      <h4>Datos de entrenador</h4>
+      <br>
+      <div style="width: auto" class="from-group">
+        <input class="from-control"
+               placeholder="Ingrese el nombre"
+               [(ngModel)]="nuevaMateria.NombreMateria" type="text">
+      </div>
+      <br>
+      <div class="from-group">
+
+        <input class="from-control"
+               placeholder="Ingrese la region"
+               [(ngModel)]="nuevaMateria.TopicoMateria" type="text">
+      </div>
+      <br>
+      <div class="from-group">
+
+        <input class="from-control"
+               placeholder="Ingrese la fecha de inicio"
+               [(ngModel)]="nuevaMateria.FechaCreacion" type="text">
+      </div>
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <img style="margin-top: 50px; width: 60%" src="http://in3dvn.com/wp-content/uploads/2016/05/in-3d-chuyen-dong-in-hinh-chuyen-dong-15.gif" alt="">
+    </div>
+  </div>
+
+
+  <br><br>
+
+  <div class="row-col-md-12">
+    <button class="btn btn-warning" (click)="crearMateria()">Guardar entrenador</button>
+  </div>
+
+  <br><br>
+
+  <h3 style="margin-left: 5%" align="left">Entrenadores:</h3>
+  <br><br>
+
+
+  <div class="row-col-sm-12">
+    <div style="width: auto; margin-left: 200px; margin-right: 200px;
+          margin-bottom: 50px; margin-top: 50px; border-style: solid ;border-color: #0c8da0;"
+         class="col-md-4" *ngFor="let materia of materias;let indice = index;">
+
+      <div style="background-color: #d0d5d8" class="row">
+
+        <div class="col-md-10">
+          <h4>{{materia.NombreMateria}}
+
+          </h4>
+        </div>
+
+        <div class="col-md-2">
+          <img style="width: 100%" src="http://4.bp.blogspot.com/-tCGc_rfw0iU/V1TwlOV1L3I/AAAAAAAAAxc/COJaEe4vDs04aFfi-A96rAkQM8LlNAjuACK4B/s1600/pikachu.gif" alt="">
+        </div>
+
+      </div>
+      <br>
+      <h6 align="left">Region: {{materia.TopicoMateria}}</h6>
+      <h6 align="left">Fecha de inicio: {{materia.FechaCreacion}}</h6>
+      <h6 align="left">{{materia.createdAt}}</h6>
+      <h6 align="left">{{materia.updatedAt}}</h6>
+      <button class="btn btn-danger" (click)="eliminarMateria(materia,indice)"> Eliminar entrenador</button>
+      <br><br>
+    </div>
+
+  </div>
+  <br><br><br><br>
+
+</div>
+
+

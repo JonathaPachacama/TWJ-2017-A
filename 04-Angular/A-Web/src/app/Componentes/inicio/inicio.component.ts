@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Http} from "@angular/http";
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/map'; // rxjs(librearia reactiva de javascript)con esta linea importamos el operador map
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
+import {UsuarioClass} from "../../Classes/UsuarioClass";
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -11,6 +12,8 @@ import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 export class InicioComponent implements OnInit {
 
   nombre: string = "Jonathan";
+  usuarios:UsuarioClass[]=[];
+  nuevoUsuario: UsuarioClass = new UsuarioClass("");
   planetas : PlanetaStarWarsInterface[] =[];
   // command + a(para seleccionas) y luedo comman command+alt+l
   arregloUsuarios = [
@@ -43,14 +46,50 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     //Esta listo el componente
+    // this._http
+    //   .post("http://localhost:1337/Usuario")
+    //   .subscribe(
+    //     respuesta=>{
+    //       let rjson = UsuarioClass[]=respuesta.json();
+    //       this.usuarios = rjson;
+    //       console.log("Usuarios: ",this.usuarios);
+    //     },
+    //     error=>{
+    //       console.log("Error",error);
+    //     }
+    //   )
+
+    this._http.get("http://localhost:1337/Usuario")
+      .subscribe(respuesta=>{
+          let rjson:UsuarioClass[]=respuesta.json();
+          this.usuarios=rjson.map(
+            (usuario:UsuarioClass)=>{
+              //cambiar el usuario
+             usuario.editar = false;
+             return usuario;
+            }
+          );
+        //añadir propiedades a un objeto
+        //   let objeto1:any={
+        //     prop1:1,
+        //     prop2:2
+        //   }
+        //   objeto1.prop3 = 3;
+        // }
+          console.log("Usuarios: ",this.usuarios);
+        },
+        error=>{
+          console.log("Error: ",error);
+        }
+      )
+    console.log('Nuevo Usuario: ',this.nuevoUsuario)
   }
 
   cambiarNombre():void{
     console.log("Entro");
     this.nombre = "Rafico a lenin";
   }
-  cambiarOtroNombre()
-  {
+  cambiarOtroNombre() {
     this.nombre = "Lenin a Rafico";
   }
   cambiarNombreInput(nombreEtiqueta) {
@@ -62,29 +101,23 @@ export class InicioComponent implements OnInit {
     this.nombre = nombreEtiqueta.value;
 
   }
-
   cargarPlanetas(){
     this._http
       .get("http://swapi.co/api/planets")
       //.map(response=>response.json()
       .subscribe(
+        //funciones anonimas http://swapi.co/api/planets/?page=2
         (response)=>{
           console.log("Response:",response);
-
           console.log(response.json());
-
           let respuesta = response.json();
-
           console.log(respuesta.next);
-
           this.planetas = respuesta.results;
           this.planetas = this.planetas.map(
             (planeta)=>{
 
-              // planeta.imagenURL2 = "/assets/Imagenes/"+planeta.name+'.jpg';
-
+              planeta.imagenURL = "/assets/Imagenes/"+planeta.name+'.jpg';
               return planeta;
-
             }
           );
 
@@ -92,8 +125,6 @@ export class InicioComponent implements OnInit {
           // MUTARLE
           // MISMO ARREGLO CON UN NUEVO ATRIBUTO
           // IMAGEN
-
-
 
         },
         (error)=>{
@@ -105,27 +136,36 @@ export class InicioComponent implements OnInit {
 
       )
   }
+  crearUsuario(){
+    console.log("Entro a crear Usuario");
+    let usuario:UsuarioClass ={
+      nombre:this.nuevoUsuario.nombre
+    };
+
+    this._http
+      .post("http://localhost:1337/Usuario",this.nuevoUsuario)
+      .subscribe(
+        respuesta=>{
+          let respuestaJson = respuesta.json();
+          console.log('respuestaJs: ',respuestaJson);
+          this.usuarios.push(respuestaJson);
+
+        },
+        error=>{
+          console.log("Error",error);
+        }
+      )
+  }
+
+eliminarUsuario(usuario:UsuarioClass){
+
+  let indice = this.usuarios.indexOf(usuario);
+  this.usuarios.splice(indice,1);
+}
 
 }
 
 
-// interface PlanetaStarWars{
-//   name:string,
-//   rotation_period: string;
-//   orbital_period: string;
-//   diameter: string;
-//   climate: string;
-//   gravity: string;
-//   terrain: string;
-//   surface_water: string;
-//   population: string;
-//   residents: string[];
-//   films: string[];
-//   created: Date;
-//   edited: Date;
-//   url: string;
-//
-// }
 
 
 

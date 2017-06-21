@@ -97,3 +97,14 @@
   font: 12px Verdana,sans-serif;
   color: #449d44;
 }
+
+.container{
+  background-color: black;
+  color: white;
+}
+.col-sm-4{
+  border: white 2px dashed;
+}
+.btn{
+  margin-bottom: 30px;
+}
