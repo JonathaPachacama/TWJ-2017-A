@@ -91,10 +91,11 @@
 <h3>header</h3>
 <ul>
   <li>
-    <a href="/inicio">Inicio</a>
+    <!--[routeLink]="['overview'] data bainig, arreglo de string para que no se carge la pagina cada qeu voy a una ruta-->
+    <a [routerLink]="['inicio']">Inicio</a>
   </li>
   <li>
-    <a href="/pagina2">Pagina2</a>
+    <a [routerLink]="['pagina2']">Pagina2</a>
   </li>
 </ul>
 <router-outlet></router-outlet>
