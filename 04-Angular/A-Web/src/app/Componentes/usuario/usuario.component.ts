@@ -17,8 +17,8 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
     console.log(this.usuarioLocal)
   }
-
-  eliminarUsuario(usuario: UsuarioClass,indice: number) {
+//metodo de eliminar usuario del backend
+  eliminarUsuarioBackend(usuario: UsuarioClass,indice: number) {
 
     this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
       .subscribe(

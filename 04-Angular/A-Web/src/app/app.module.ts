@@ -12,6 +12,8 @@ import { GravityComponent } from './Componentes/planeta-star-wars/Componentes PS
 import { OrbitalPeriodComponent } from './Componentes/planeta-star-wars/Componentes PSW/orbital-period/orbital-period.component';
 import { TerrainComponent } from './Componentes/planeta-star-wars/Componentes PSW/terrain/terrain.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
+import { Pagina2Component } from './Componentes/pagina2/pagina2.component';
+import {ModuleDeRutas} from "./routes";
 
 @NgModule({
   declarations: [
@@ -25,18 +27,20 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
     GravityComponent,
     OrbitalPeriodComponent,
     TerrainComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    Pagina2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModuleDeRutas
   ],
   // providers: [],
   providers: [
         // http
   ],
   //bootstrap: [AppComponent]
-  bootstrap: [InicioComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
