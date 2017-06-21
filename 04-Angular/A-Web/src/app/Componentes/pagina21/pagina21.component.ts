@@ -30,7 +30,8 @@ export class Pagina21Component implements OnInit {
   }
 
   navegarAInicio(){
-    this.router.navigate(["inicio"])
+    // this.router.navigate(["inicio"])
+    this.router.navigate(["pagina2",2,"pagina3",4,"pagina22",136])
   }
 
 }
