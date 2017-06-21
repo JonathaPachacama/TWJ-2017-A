@@ -18,12 +18,13 @@ export class UsuarioComponent implements OnInit {
     console.log(this.usuarioLocal)
   }
 
-  eliminarUsuario(usuario: UsuarioClass, indice: number) {
+  eliminarUsuario(usuario: UsuarioClass,indice: number) {
 
     this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
       .subscribe(
         respuesta=>{
           this.usuarioborrado.emit(usuario);
+          //this.usuarios.splice(this.usuarios.indexOf(usuario),1)
 
         },
         error=>{
@@ -35,7 +36,7 @@ export class UsuarioComponent implements OnInit {
 
   actualizarUsuario(usuario:UsuarioClass,nombre:string){
     let actualizacion ={
-      nombre:usuario.nombre
+      nombre:nombre
     };
     this._http.put(
       "http://localhost:1337/Usuario/"+usuario.id,actualizacion)
