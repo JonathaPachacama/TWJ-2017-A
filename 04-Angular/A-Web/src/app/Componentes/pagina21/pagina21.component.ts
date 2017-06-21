@@ -29,4 +29,8 @@ export class Pagina21Component implements OnInit {
 
   }
 
+  navegarAInicio(){
+    this.router.navigate(["inicio"])
+  }
+
 }
