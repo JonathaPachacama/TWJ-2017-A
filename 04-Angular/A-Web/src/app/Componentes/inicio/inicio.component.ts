@@ -65,17 +65,17 @@ export class InicioComponent implements OnInit {
           this.usuarios=rjson.map(
             (usuario:UsuarioClass)=>{
               //cambiar el usuario
-             usuario.editar = false;
-             return usuario;
+              usuario.editar = false;
+              return usuario;
             }
           );
-        //añadir propiedades a un objeto
-        //   let objeto1:any={
-        //     prop1:1,
-        //     prop2:2
-        //   }
-        //   objeto1.prop3 = 3;
-        // }
+          //añadir propiedades a un objeto
+          //   let objeto1:any={
+          //     prop1:1,
+          //     prop2:2
+          //   }
+          //   objeto1.prop3 = 3;
+          // }
           console.log("Usuarios: ",this.usuarios);
         },
         error=>{
@@ -157,11 +157,14 @@ export class InicioComponent implements OnInit {
       )
   }
 
-eliminarUsuario(usuario:UsuarioClass){
-
-  let indice = this.usuarios.indexOf(usuario);
-  this.usuarios.splice(indice,1);
-}
+  //metodo del frontend
+  //Este metodo se ejecuta con el evento del componente hijo
+  //(usuarioBorrado)="eliminarUsuario($event)"
+  eliminarUsuarioFrontEnd(usuario:UsuarioClass){
+    let indice = this.usuarios.indexOf(usuario);
+    //eliminando del areglo
+    this.usuarios.splice(indice,1);
+  }
 
 }
 

@@ -1,84 +1,105 @@
-<!--<h1>-->
-  <!--{{title}}-->
-  <!--{{saludo}}-->
-  <!--{{nombre}}-->
-  <!--{{apellido}}-->
+<!--&lt;!&ndash;<h1>&ndash;&gt;-->
+<!--&lt;!&ndash;{{title}}&ndash;&gt;-->
+<!--&lt;!&ndash;{{saludo}}&ndash;&gt;-->
+<!--&lt;!&ndash;{{nombre}}&ndash;&gt;-->
+<!--&lt;!&ndash;{{apellido}}&ndash;&gt;-->
+<!--&lt;!&ndash;</h1>&ndash;&gt;-->
 
-  <h1>Mi primer aplicacion en Angular</h1>
 
-<!--</h1>-->
-
-<h2>Property Binding</h2>
-
-<h3>Primera forma con llaves dobles </h3>
-<p>{{parrafo}}</p>
-<h3>Segunda forma con []</h3>
-
-<!--<p [style.color]="'green'" [innerText]="parrafo"></p>-->
-
-<p [style.color]="'white'"
-       [style.background-color]="background"
-       [innerText]="parrafo"></p>
-<input type="text" [value]="parrafo">
+<!--<h1>Mi primer aplicacion en Angular</h1>-->
 
 
 
-<app-estilo></app-estilo>
+<!--<h2>Property Binding</h2>-->
 
-<app-estilo></app-estilo>
+<!--<h3>Primera forma con llaves dobles </h3>-->
+<!--<p>{{parrafo}}</p>-->
+<!--<h3>Segunda forma con []</h3>-->
 
-<app-estilo></app-estilo>
+<!--&lt;!&ndash;<p [style.color]="'green'" [innerText]="parrafo"></p>&ndash;&gt;-->
 
-<app-estilo></app-estilo>
-
-<p>Mantiene sincronizadas las variables
-  del componente en el html</p>
-
-
-
-
+<!--<p [style.color]="'white'"-->
+   <!--[style.background-color]="background"-->
+   <!--[innerText]="parrafo"></p>-->
+<!--<input type="text" [value]="parrafo">-->
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<!--<app-estilo></app-estilo>-->
+
+<!--<app-estilo></app-estilo>-->
+
+<!--<app-estilo></app-estilo>-->
+
+<!--<app-estilo></app-estilo>-->
+
+<!--<p>Mantiene sincronizadas las variables-->
+  <!--del componente en el html</p>-->
 
 
 
 
-<!-- <p>Gracias por visitarnos</p> -->
-SI HACER ESTO
-<p>Gracias por visitarnos {{usuario.nombre}} {{usuario.apellido}}</p>
-
-<h3>Desarrollado por {{usuario.nombre}}</h3>
 
 
-NO HACER ESTO
-<h3>Desarrollado por
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
 
-  {{
-    saludar(usuario.nombre,usuario.apellido)}}
-
-  </h3>
-
-NO HACER ESTO
-<h3>{{usuario.nombre +" " + usuario.apellido}}
-  </h3>
 
 
-<!-- no usar:  <a href="{{url}}">  (no recomendado)-->
-<a [href]="url">
 
-  <img [src]="src" alt="Logo Angular">
+<!--&lt;!&ndash; <p>Gracias por visitarnos</p> &ndash;&gt;-->
+<!--SI HACER ESTO-->
+<!--<p>Gracias por visitarnos {{usuario.nombre}} {{usuario.apellido}}</p>-->
 
-</a>
+<!--<h3>Desarrollado por {{usuario.nombre}}</h3>-->
+
+
+<!--NO HACER ESTO-->
+<!--<h3>Desarrollado por-->
+
+  <!--{{-->
+  <!--saludar(usuario.nombre,usuario.apellido)}}-->
+
+<!--</h3>-->
+
+<!--NO HACER ESTO-->
+<!--<h3>{{usuario.nombre +" " + usuario.apellido}}-->
+<!--</h3>-->
+
+
+<!--&lt;!&ndash; no usar:  <a href="{{url}}">  (no recomendado)&ndash;&gt;-->
+<!--<a [href]="url">-->
+
+  <!--<img [src]="src" alt="Logo Angular">-->
+
+<!--</a>-->
+
+<!--/////////////////////////////////////////////clase 21/06/2017-->
+
+<h1>App component</h1>
+<h3>header</h3>
+<ul>
+  <li>
+    <!--[routeLink]="['overview'] data bainig, arreglo de string para que no se carge la pagina cada qeu voy a una ruta-->
+    <a [routerLink]="['inicio']">Inicio</a>
+  </li>
+  <li>
+    <!--<a [routerLink]="['pagina2','idParametro']">Pagina2</a>-->
+    <a [routerLink]="['pagina2',66,'pagina3',1283]">Pagina2</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<h3>Footer</h3>
+
+
