@@ -156,55 +156,12 @@ export class InicioComponent implements OnInit {
         }
       )
   }
-  eliminarUsuario(usuario: UsuarioClass, indice: number) {
 
-    console.log("Indice:", this.usuarios.indexOf(usuario));
-    console.log("Indice con index: ", indice);
-    console.log("Usuarios : ", this.usuarios);
-    console.log("Usuariofff : ", usuario.id);
+eliminarUsuario(usuario:UsuarioClass){
 
-
-    this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
-      .subscribe(respuesta=>{
-          this.usuarios.splice(indice,1);
-          let respuestaJson=respuesta.json();
-          console.log('respuestaJsonoooooo: ',respuestaJson);
-        },
-        error=>{
-          console.log("Error ", error)
-        }
-      )
-
-  }
-
-  actualizarUsuario(usuario:UsuarioClass,nombre:string){
-    let actualizacion ={
-      nombre:usuario.nombre
-    };
-    this._http.put(
-      "http://localhost:1337/Usuario/"+usuario.id,actualizacion)
-      .map(
-        (res)=>{
-          return res.json();
-        })
-      //snnippet -> templete de cosgigo para reutilizarlo
-      .subscribe(
-        res=>{
-          //el servidor no dice ke se actualizo
-          console.log("El usuario se actualizo");
-          let indice = this.usuarios.indexOf(usuario);
-          this.usuarios[indice].nombre = nombre;
-          this.usuarios[indice].editar = !this.usuarios[indice].editar;
-        },
-        err=>{
-          //hubo algun problema  (Red servidor)
-          //aki podriamos poner un toaster
-          console.log("Hubo un error",err)
-        }
-      );
-
-  }
-
+  let indice = this.usuarios.indexOf(usuario);
+  this.usuarios.splice(indice,1);
+}
 
 }
 
