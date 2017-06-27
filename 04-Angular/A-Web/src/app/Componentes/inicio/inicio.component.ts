@@ -136,25 +136,30 @@ export class InicioComponent implements OnInit {
 
       )
   }
-  crearUsuario(){
+  crearUsuario(UsuarioFormulario){
     console.log("Entro a crear Usuario");
-    let usuario:UsuarioClass ={
-      nombre:this.nuevoUsuario.nombre
-    };
+    console.log(UsuarioFormulario)
+    console.log(this.nuevoUsuario);
 
-    this._http
-      .post("http://localhost:1337/Usuario",this.nuevoUsuario)
-      .subscribe(
-        respuesta=>{
-          let respuestaJson = respuesta.json();
-          console.log('respuestaJs: ',respuestaJson);
-          this.usuarios.push(respuestaJson);
 
-        },
-        error=>{
-          console.log("Error",error);
-        }
-      )
+
+    // let usuario:UsuarioClass ={
+    //   nombre:this.nuevoUsuario.nombre
+    // };
+    //
+    // this._http
+    //   .post("http://localhost:1337/Usuario",this.nuevoUsuario)
+    //   .subscribe(
+    //     respuesta=>{
+    //       let respuestaJson = respuesta.json();
+    //       console.log('respuestaJs: ',respuestaJson);
+    //       this.usuarios.push(respuestaJson);
+    //
+    //     },
+    //     error=>{
+    //       console.log("Error",error);
+    //     }
+    //   )
   }
 
   //metodo del frontend

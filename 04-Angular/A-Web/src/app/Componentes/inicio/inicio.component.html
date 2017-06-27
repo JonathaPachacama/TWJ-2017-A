@@ -488,6 +488,38 @@
       <button class="btn btn-success" (click)="crearUsuario()" >Crear Usuario</button>
     </div>
   </div>
+  <!--utilizamos formularioa cuando creamos algo o actualizamos-->
+  <form (ngSubmit)="crearUsuario(UsuarioFormulario)"
+        #UsuarioFormulario="ngForm"
+        novalidate>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+
+          <label class="col-form-label">Nombre Usuario2:
+          </label>
+          <input class="form-control"
+                 required
+                 placeholder="Ingrese nuevo Nombre" name="nombre"
+                 type="text"
+                 [(ngModel)]="nuevoUsuario.nombre"
+                  #nombre="ngModel"
+                  #nombreTAG>
+          <pre>
+            {{nombre.errors| json}}
+            {{nombre.touched}}
+            {{nombre.dirty}}
+          </pre>
+        </div>
+
+        <button class="btn btn-success" type="submit">
+          Crear usuario
+        </button>
+        <button class="bnt btn-warning" type="button">Cancelar</button>
+
+      </div>
+    </div>
+  </form>
   <h3>Usuarios:</h3>
 
   <div class="row">
