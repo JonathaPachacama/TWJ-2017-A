@@ -10,8 +10,11 @@ module.exports = {
   attributes: {
     nombre:{
       type:"string"
+    },
+    duenosMascotas:{
+      collection:"UsuarioMascota",
+      via:"idUsuario"
     }
-
   }
 };
 
