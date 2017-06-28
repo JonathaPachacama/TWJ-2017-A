@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map'; // rxjs(librearia reactiva de javascript)con est
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Form} from "@angular/forms";
+import {CorreoClass} from "../../Classes/CorreoClass";
 
 @Component({
   selector: 'app-inicio',
@@ -17,6 +18,7 @@ export class InicioComponent implements OnInit {
   nombre: string = "Jonathan";
   usuarios:UsuarioClass[]=[];
   nuevoUsuario: UsuarioClass = new UsuarioClass("");
+  nuevoCorreo: CorreoClass = new CorreoClass("");
   planetas : PlanetaStarWarsInterface[] =[];
   // planetas2 : Array<PlanetaStarWars> =  []
   // command + a(para seleccionas) y luedo comman command+alt+l
@@ -143,7 +145,8 @@ export class InicioComponent implements OnInit {
   }
   crearUsuario(UsuarioFormulario){
     console.log("Entro a crear Usuario");
-    console.log(UsuarioFormulario)
+    //console.log(UsuarioFormulario);
+    console.log("Formulario:",UsuarioFormulario.value);
     console.log(this.nuevoUsuario);
 
 
@@ -177,5 +180,11 @@ export class InicioComponent implements OnInit {
     //eliminando del areglo
     this.usuarios.splice(indice,1);
   }
+  crearCorreo(UsuarioFormularioCorreo){
+    console.log("Entro a crear Correo del usuario");
+    //console.log(UsuarioFormulario);
+    console.log("Formulario:",UsuarioFormularioCorreo.value);
+    console.log(this.nuevoCorreo);
 
+  }
 }
