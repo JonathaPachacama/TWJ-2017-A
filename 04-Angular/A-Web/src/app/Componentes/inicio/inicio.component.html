@@ -513,6 +513,7 @@
   <h2>Usuarios</h2>
 
   <!--utilizamos formularioa cuando creamos algo o actualizamos-->
+  <!--validad para el nuevo usuario-->
   <form (ngSubmit)="crearUsuario(UsuarioFormulario)"
         #UsuarioFormulario="ngForm"
         novalidate>
@@ -528,7 +529,7 @@
                  maxlength="15"
                  placeholder="Ingrese nuevo Nombre" name="nombre"
                  type="email"
-                 pattern="[A-Za-z]{3}"
+                 pattern="[A-Za-z]{15}"
                  [(ngModel)]="nuevoUsuario.nombre"
                  #nombre="ngModel"
                  #nombreTAG
@@ -554,6 +555,55 @@
         </div>
 
         <button class="btn btn-success" [disabled]="!UsuarioFormulario.valid"  type="submit">
+          Crear usuario
+        </button>
+        <button class="bnt btn-warning" type="button">Cancelar</button>
+
+      </div>
+    </div>
+  </form>
+  <!--validad para el correo del usuario-->
+  <form (ngSubmit)="crearCorreo(UsuarioFormularioCorreo)"
+        #UsuarioFormularioCorreo="ngForm"
+        novalidate>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+
+          <label class="col-form-label">Correo del usuario:
+          </label>
+          <input class="form-control"
+                 required
+                 minlength="3"
+                 maxlength="15"
+                 placeholder="Ingrese nuevo Correo" name="correo"
+                 type="email"
+                 pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                 [(ngModel)]="nuevoCorreo.correo"
+                 #correo="ngModel"
+                 #correoTAG
+          >
+          <br>
+          <div *ngIf="correo.errors?.minlength&&correo.touched==true" class="alert alert-warning animated bounceIn" role="alert">
+            <strong>Cuidado!</strong>Debe de llenar el campo desde 3 a 15 caracteres
+          </div>
+
+          <div *ngIf="correo.errors?.required&&correo.touched==true" class="alert alert-danger animated bounceIn" role="alert">
+            <strong>Peligro!</strong>Este campo es requerido
+          </div>
+          <pre>
+            errores:
+            {{correo.errors| json}}
+            Touched:
+            {{correo.touched}}
+            Dirty:
+            {{correo.dirty}}
+            Pristine:
+            {{correo.pristine}}
+          </pre>
+        </div>
+
+        <button class="btn btn-success" [disabled]="!UsuarioFormularioCorreo.valid"  type="submit">
           Crear usuario
         </button>
         <button class="bnt btn-warning" type="button">Cancelar</button>
