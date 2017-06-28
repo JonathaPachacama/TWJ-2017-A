@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
 import {Http} from "@angular/http";
+
 import 'rxjs/add/operator/map'; // rxjs(librearia reactiva de javascript)con esta linea importamos el operador map
+
 import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
+import {Form} from "@angular/forms";
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -15,6 +18,7 @@ export class InicioComponent implements OnInit {
   usuarios:UsuarioClass[]=[];
   nuevoUsuario: UsuarioClass = new UsuarioClass("");
   planetas : PlanetaStarWarsInterface[] =[];
+  // planetas2 : Array<PlanetaStarWars> =  []
   // command + a(para seleccionas) y luedo comman command+alt+l
   arregloUsuarios = [
     {
@@ -69,13 +73,14 @@ export class InicioComponent implements OnInit {
               return usuario;
             }
           );
-          //añadir propiedades a un objeto
-          //   let objeto1:any={
-          //     prop1:1,
-          //     prop2:2
-          //   }
-          //   objeto1.prop3 = 3;
-          // }
+          /*
+          //añadir propiedades a  objetos
+             let objeto1:any={
+               prop1:1,
+               prop2:2
+             }
+             objeto1.prop3 = 3;
+           }*/
           console.log("Usuarios: ",this.usuarios);
         },
         error=>{
@@ -136,25 +141,32 @@ export class InicioComponent implements OnInit {
 
       )
   }
-  crearUsuario(){
+  crearUsuario(UsuarioFormulario){
     console.log("Entro a crear Usuario");
+    console.log(UsuarioFormulario)
+    console.log(this.nuevoUsuario);
+
+
+    /*
     let usuario:UsuarioClass ={
-      nombre:this.nuevoUsuario.nombre
-    };
-
+       nombre:this.nuevoUsuario.nombre
+     };
+    */
+    /*
     this._http
-      .post("http://localhost:1337/Usuario",this.nuevoUsuario)
-      .subscribe(
-        respuesta=>{
-          let respuestaJson = respuesta.json();
-          console.log('respuestaJs: ',respuestaJson);
-          this.usuarios.push(respuestaJson);
+       .post("http://localhost:1337/Usuario",this.nuevoUsuario)
+       .subscribe(
+         respuesta=>{
+           let respuestaJson = respuesta.json();
+           console.log('respuestaJs: ',respuestaJson);
+           this.usuarios.push(respuestaJson);
 
-        },
-        error=>{
-          console.log("Error",error);
-        }
-      )
+         },
+         error=>{
+           console.log("Error",error);
+         }
+       )
+       */
   }
 
   //metodo del frontend
@@ -167,8 +179,3 @@ export class InicioComponent implements OnInit {
   }
 
 }
-
-
-
-
-

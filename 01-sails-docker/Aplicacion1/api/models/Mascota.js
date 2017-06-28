@@ -1,5 +1,5 @@
 /**
- * Usuario.js
+ * Mascota.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -11,10 +11,15 @@ module.exports = {
     nombre:{
       type:"string"
     },
+    idRaza:{
+      model:"Raza" //Modelo a Relacionar (Papá)
+    },
     duenosMascotas:{
-      collection:"UsuarioMascota",
-      via:"idUsuario"
+      collection:"UsuarioMascota", //Modelo
+      via:"idMascota" //foreing key
     }
+
+
   }
 };
 
