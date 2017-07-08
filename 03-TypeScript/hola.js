@@ -42,6 +42,7 @@ var Persona = (function () {
     }
     Persona.prototype.imprimirPersona = function () {
         console.log(this.nombre, this.apellido);
+        this.imprimirNombre(this.nombre);
         return {
             nombre: this.nombre,
             apellido: this.apellido
@@ -57,6 +58,17 @@ var Persona = (function () {
     };
     return Persona;
 }());
+//funciones
+function SumarNumeros(numero1, numero2) {
+    return numero1 + numero2;
+}
+//podemos escribir como en javascript
+var objeto = {
+    nombre: "adrian",
+    imprimirNombre: function () {
+        return this.nombre;
+    }
+};
 var jonathan = new Persona();
 console.log(jonathan.nombre, jonathan.apellido, jonathan.fechaNacimiento);
 jonathan.nombre = "Jonathan";
