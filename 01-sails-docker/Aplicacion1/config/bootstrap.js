@@ -10,6 +10,24 @@
  */
 
 module.exports.bootstrap = function(cb) {
-console.log("Antes de levantar el servidor")
-  cb();
+  console.log("Antes de levantar");
+
+  Usuario
+    .findOne({
+      correo:"pool@epn.edu.ec"
+    })
+    .exec(function (err,usuarioEncontrado) {
+      if(err) cb("error");
+      if(!usuarioEncontrado){
+        cb("No existe el usuario");
+      }else{
+        if(usuarioEncontrado.password=="123456"){
+          console.log("No aplicado el hash")
+          cb();
+        }else{
+          console.log("Aplicar el hash")
+          cb();
+        }
+      }
+    });
 };
