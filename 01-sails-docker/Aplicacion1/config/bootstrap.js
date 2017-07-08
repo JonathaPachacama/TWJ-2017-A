@@ -10,6 +10,6 @@
  */
 
 module.exports.bootstrap = function(cb) {
-  
+console.log("Antes de levantar el servidor")
   cb();
 };

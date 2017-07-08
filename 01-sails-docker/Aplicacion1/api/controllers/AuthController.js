@@ -21,14 +21,31 @@ module.exports = {
         if (!usuarioEncontrado) {
           return res.notFound("Usuario no encontrado");
         } else{
+          /*
           if(parametros.password==usuarioEncontrado.password){
             return res.ok("Estas logeado")
           }else{
             return res.badRequest("Password Incorrecta")
-          }
-        }
+          }*/
+          Passwords.checkPassword({
+                          passwordAttempt: parametros.password,
+                          encryptedPassword: usuarioEncontrado.password,
+                        })
+                   .exec({
+                          error: function (err) {
+                            return res.serverError(err);
+                          },
+                       incorrect: function () {
+                           return res.badRaquest("Datos Invalidos")
+                            },
+                       success: function () {
+                            return res.ok("Esta logeado");
+                          }
+                      });
+                    }
 
-      });
+                });
+
     }else {
       return res.badRequest("No envia correo y password")
     }
