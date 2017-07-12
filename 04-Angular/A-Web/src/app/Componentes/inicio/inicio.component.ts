@@ -155,9 +155,9 @@ export class InicioComponent implements OnInit {
        nombre:this.nuevoUsuario.nombre
      };
     */
-    /*
+
     this._http
-       .post("http://localhost:1337/Usuario",this.nuevoUsuario)
+       .post("http://localhost:1337/Usuario",UsuarioFormulario.value)
        .subscribe(
          respuesta=>{
            let respuestaJson = respuesta.json();
@@ -169,7 +169,7 @@ export class InicioComponent implements OnInit {
            console.log("Error",error);
          }
        )
-       */
+
   }
 
   //metodo del frontend
