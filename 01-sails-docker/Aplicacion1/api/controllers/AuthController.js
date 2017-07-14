@@ -45,7 +45,7 @@ module.exports = {
                   return res.serverError(err);
                 },
                 incorrect: function () {
-                  return res.badRaquest("Datos Invalidos")
+                  return res.badRequest("Datos Invalidos")
                 },
                 success: function () {
                   return res.ok("Esta logeado");
