@@ -43,3 +43,10 @@ Donde  **Aplicacion** es el nombre de la carpeta
 - Debemos de estar **dentro de la carpeta** del proyecto de sails
 
 - crea los modelos
+
+## sails generate controller 
+
+```
+>> sails generate controller <nombreControlador>
+```
+- Debemos de estar **dentro de la carpeta** del proyecto de sails

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TokenService} from "./token.service";
 
 @Component({
   selector: 'twj-raiz',
@@ -32,7 +33,15 @@ export class AppComponent {
 
 
 
-  constructor(){
+  constructor(private _TokenService:TokenService){
+    this._TokenService.token = "Mi mama me mima"
+
+
+
+
+
+
+
     // console.log("Constructor");
     // this.holaMundo();
     // console.log(this.saludar(this.usuario.nombre,this.usuario.apellido));
