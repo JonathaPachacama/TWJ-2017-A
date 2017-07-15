@@ -15,8 +15,6 @@ module.exports = {
     var parametros = req.allParams()
 
     if(parametros.correo&&parametros.password){
-
-
       Usuario
         .findOne({
           correo:parametros.correo

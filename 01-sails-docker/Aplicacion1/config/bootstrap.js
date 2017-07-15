@@ -10,7 +10,8 @@
  */
 var Passwords = require('machinepack-passwords');
 module.exports.bootstrap = function(cb) {
-  console.log("Antes de levantar");
+
+  /*console.log("Antes de levantar");
 
   Usuario
     .findOne({
@@ -58,5 +59,7 @@ module.exports.bootstrap = function(cb) {
           cb();
         }
       }
-    });
+    });*/
+
+  cb() //Aqui se levanta el sails
 };
