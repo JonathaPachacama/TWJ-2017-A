@@ -15,7 +15,8 @@ module.exports = {
       type:"email"
     },
     password:{
-      type:"string"
+      type:"string",
+      required:true
     },
     duenosMascotas:{
       collection:"UsuarioMascota",
@@ -27,7 +28,9 @@ module.exports = {
     // usuario.nombre = "Joseee";
     // usuario.password = "12345";
     // cb();
-    if (usuario.password) {
+
+
+    //if (usuario.password) {
     Passwords.encryptPassword({password: usuario.password}).exec({
       error: function (err) {
        cb("error en hash Password",err)
@@ -37,9 +40,9 @@ module.exports = {
        cb()
       },
     });
-    }else{
-      cb();
-    }
+    //}else{
+      //cb();
+    //}
 
 
   }
