@@ -45,6 +45,28 @@ module.exports = {
     //}
 
 
+  },
+
+  beforeUpdate: function (valorAActualizar,cb) {
+    if (valorAActualizar.password) {
+    Passwords.encryptPassword({
+      password: valorAActualizar.password
+    })
+      .exec(
+        {
+          error: function (err) {
+            cb("error en hash Password",err)
+          },
+          success: function (hashedPassword) {
+            valorAActualizar.password = hashedPassword;
+            cb()
+          },
+    });
+    }else{
+    cb();
+    }
+
+
   }
 
 };
