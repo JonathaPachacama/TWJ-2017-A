@@ -9,10 +9,11 @@
 //                  /logInFacebook
 
 var Passwords = require('machinepack-passwords');
+var jwt = require('jsonwebtoken');
 
 module.exports = {
   logIn:function (req,res) {
-    var parametros = req.allParams()
+    var parametros = req.allParams();
 
     if(parametros.correo&&parametros.password){
       Usuario
@@ -46,7 +47,19 @@ module.exports = {
                   return res.badRequest("Datos Invalidos")
                 },
                 success: function () {
-                  return res.ok("Esta logeado");
+                  //devolver la credencial
+                  var token =jwt
+                            .sign(
+                             {
+                                exp:Math.floor(Date.now()/ 1000)+(60*60), // aki va expirar en una hor
+                                data:{
+                                      id:usuarioEncontrado.id,
+                                      nombre:usuarioEncontrado.nombre,
+                                      correo:usuarioEncontrado.correo
+                                }
+                              },
+                              'leninAmaACoreea');  //palabra secreta
+                  return res.ok(token);
                 }
               });
           }
