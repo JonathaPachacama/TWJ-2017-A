@@ -17,6 +17,8 @@ import {ModuleDeRutas} from "./routes";
 import { Pagina21Component } from './Componentes/pagina21/pagina21.component';
 import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
 import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
+import { LoginComponent } from './Componentes/login/login.component';
+import {TokenService} from "./token.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
     Pagina2Component,
     Pagina21Component,
     Pagina22Component,
-    Pagina23Component
+    Pagina23Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
   // providers: [],
   providers: [
         // http
+        TokenService// aqui van los servicios - singletons
   ],
   //bootstrap: [AppComponent]
   bootstrap: [AppComponent]
