@@ -7,7 +7,7 @@ import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Form} from "@angular/forms";
 import {CorreoClass} from "../../Classes/CorreoClass";
-import {UsuarioServiceService} from "../Services/usuario-service.service";
+import {UsuarioServiceService} from "../../Services/usuario-service.service";
 
 @Component({
   selector: 'app-inicio',

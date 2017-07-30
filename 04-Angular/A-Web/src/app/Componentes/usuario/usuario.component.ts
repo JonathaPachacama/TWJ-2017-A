@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Http} from "@angular/http";
-import {UsuarioServiceService} from "../Services/usuario-service.service";
+import {UsuarioServiceService} from "../../Services/usuario-service.service";
 
 @Component({
   selector: 'app-usuario',
@@ -25,10 +25,11 @@ export class UsuarioComponent implements OnInit {
       .borrar(usuario)
       .subscribe(
         (usuarioborrado:UsuarioClass)=>{
-          this.usuarioborrado.emit(usuarioborrado);
+          this.usuarioborrado.emit(usuario);
+          console.log("usuario borrado");
         },
         error=>{
-          console.log("Error ", error)
+          console.log("Error ", error);
         }
       )
 
