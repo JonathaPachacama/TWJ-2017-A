@@ -19,6 +19,8 @@ import { Pagina22Component } from './Componentes/pagina22/pagina22.component';
 import { Pagina23Component } from './Componentes/pagina23/pagina23.component';
 import { LoginComponent } from './Componentes/login/login.component';
 import {TokenService} from "./token.service";
+import {UsuarioServiceService} from "./Services/usuario-service.service";
+import {MasterUrlService} from "./Services/master-url.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {TokenService} from "./token.service";
   // providers: [],
   providers: [
         // http
-        TokenService// aqui van los servicios - singletons
+        TokenService,// aqui van los servicios - singletons
+        UsuarioServiceService,  // servicios - singletons
+        MasterUrlService
   ],
   //bootstrap: [AppComponent]
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import {PlanetaStarWarsInterface} from "../../Interfaces/PlanetaStarWars";
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Form} from "@angular/forms";
 import {CorreoClass} from "../../Classes/CorreoClass";
+import {UsuarioServiceService} from "../../Services/usuario-service.service";
 
 @Component({
   selector: 'app-inicio',
@@ -45,7 +46,7 @@ export class InicioComponent implements OnInit {
     }];
 
 
-  constructor(private _http:Http) {
+  constructor(private _usuarioService:UsuarioServiceService) {
     //Inicia la clase
     //PERO EL COMPONENTE NO ESTA LISTO!!!!
   }
@@ -65,33 +66,22 @@ export class InicioComponent implements OnInit {
     //     }
     //   )
 
-    this._http.get("http://localhost:1337/Usuario")
-      .subscribe(respuesta=>{
-          let rjson:UsuarioClass[]=respuesta.json();
-          this.usuarios=rjson.map(
-            (usuario:UsuarioClass)=>{
+    this._usuarioService.buscarTodos()
+      .subscribe(
+        (usuarios:UsuarioClass[])=> {
+          this.usuarios = usuarios.map(
+            (usuario: UsuarioClass) => {
               //cambiar el usuario
               usuario.editar = false;
               return usuario;
             }
           );
-          /*
-          //añadir propiedades a  objetos
-             let objeto1:any={
-               prop1:1,
-               prop2:2
-             }
-             objeto1.prop3 = 3;
-           }*/
-          console.log("Usuarios: ",this.usuarios);
         },
-        error=>{
-          console.log("Error: ",error);
+            error=>{
+              console.log("Error: ",error);
+            }
+          )
         }
-      )
-    console.log('Nuevo Usuario: ',this.nuevoUsuario)
-  }
-
   cambiarNombre():void{
     console.log("Entro");
     this.nombre = "Rafico a lenin";
@@ -108,6 +98,7 @@ export class InicioComponent implements OnInit {
     this.nombre = nombreEtiqueta.value;
 
   }
+  /*
   cargarPlanetas(){
     this._http
       .get("http://swapi.co/api/planets")
@@ -142,29 +133,23 @@ export class InicioComponent implements OnInit {
         }
 
       )
-  }
+  } */
   crearUsuario(UsuarioFormulario){
-    console.log("Entro a crear Usuario");
-    //console.log(UsuarioFormulario);
-    console.log("Formulario:",UsuarioFormulario.value);
-    console.log(this.nuevoUsuario);
-
-
+    let usuarioACrearse:UsuarioClass=new UsuarioClass(UsuarioFormulario.value.nombre,"123456");
     /*
-    let usuario:UsuarioClass ={
-       nombre:this.nuevoUsuario.nombre
-     };
-    */
-
-    this._http
-       .post("http://localhost:1337/Usuario",UsuarioFormulario.value)
-       .subscribe(
-         respuesta=>{
-           let respuestaJson = respuesta.json();
-           console.log('respuestaJs: ',respuestaJson);
-           this.usuarios.push(respuestaJson);
-
-         },
+        let usuario = {
+           nombre:"valor",
+           id:undefined,
+           createdAt:undefined,
+           updatedAt:undefined,
+           editar:undefined
+         }
+     */
+       this._usuarioService.crear(usuarioACrearse)
+      .subscribe((usuarioCreado:UsuarioClass)=>{
+          this.usuarios.push(usuarioCreado);
+          this.nuevoUsuario = new UsuarioClass();
+      },
          error=>{
            console.log("Error",error);
          }
@@ -177,7 +162,6 @@ export class InicioComponent implements OnInit {
   //(usuarioBorrado)="eliminarUsuario($event)"
   eliminarUsuarioFrontEnd(usuario:UsuarioClass){
     let indice = this.usuarios.indexOf(usuario);
-    //eliminando del areglo
     this.usuarios.splice(indice,1);
   }
   crearCorreo(UsuarioFormularioCorreo){
