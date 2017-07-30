@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UsuarioClass} from "../../Classes/UsuarioClass";
 import {Http} from "@angular/http";
+import {UsuarioServiceService} from "../Services/usuario-service.service";
 
 @Component({
   selector: 'app-usuario',
@@ -12,7 +13,7 @@ export class UsuarioComponent implements OnInit {
   @Input() usuarioLocal:UsuarioClass;
   @Output() usuarioborrado = new EventEmitter();
 
-  constructor(private _http:Http) { }
+  constructor(private _usuarioService:UsuarioServiceService) { }
 
   ngOnInit() {
     console.log(this.usuarioLocal)
@@ -20,12 +21,11 @@ export class UsuarioComponent implements OnInit {
 //metodo de eliminar usuario del backend
   eliminarUsuarioBackend(usuario: UsuarioClass,indice: number) {
 
-    this._http.delete("http://localhost:1337/Usuario?id="+usuario.id)
+    this._usuarioService
+      .borrar(usuario)
       .subscribe(
-        respuesta=>{
-          this.usuarioborrado.emit(usuario);
-          //this.usuarios.splice(this.usuarios.indexOf(usuario),1)
-
+        (usuarioborrado:UsuarioClass)=>{
+          this.usuarioborrado.emit(usuarioborrado);
         },
         error=>{
           console.log("Error ", error)
@@ -35,26 +35,14 @@ export class UsuarioComponent implements OnInit {
   }
 
   actualizarUsuario(usuario:UsuarioClass,nombre:string){
-    let actualizacion ={
-      nombre:nombre
-    };
-    this._http.put(
-      "http://localhost:1337/Usuario/"+usuario.id,actualizacion)
-      .map(
-        (res)=>{
-          return res.json();
-        })
-      //snnippet -> templete de cosgigo para reutilizarlo
+    usuario.nombre =nombre;
+    this._usuarioService.editar(usuario)
       .subscribe(
-        res=>{
-          //el servidor no dice ke se actualizo
-          console.log("El usuario se actualizo",res);
+        (usuarioEditado:UsuarioClass)=>{
           this.usuarioLocal.nombre = nombre;
-          this.usuarioLocal.editar =  !this.usuarioLocal.editar;
-          //let indice = this.usuarios.indexOf(usuario);
-          //this.usuarios[indice].nombre = nombre;
-          //this.usuarios[indice].editar = !this.usuarios[indice].editar;
+          this.usuarioLocal.editar = !this.usuarioLocal.editar;
         },
+
         err=>{
           //hubo algun problema  (Red servidor)
           //aki podriamos poner un toaster
