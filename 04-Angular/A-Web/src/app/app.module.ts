@@ -21,6 +21,9 @@ import { LoginComponent } from './Componentes/login/login.component';
 import {TokenService} from "./token.service";
 import {UsuarioServiceService} from "./Services/usuario-service.service";
 import {MasterUrlService} from "./Services/master-url.service";
+import {AuthService} from "./Services/auth.service";
+import {EstaLogeadoService} from "./Services/esta-logeado.service";
+import {ApiAuthService} from "./Services/api-auth.service";
 
 @NgModule({
   declarations: [
@@ -52,7 +55,11 @@ import {MasterUrlService} from "./Services/master-url.service";
         // http
         TokenService,// aqui van los servicios - singletons
         UsuarioServiceService,  // servicios - singletons
-        MasterUrlService
+        MasterUrlService,
+    AuthService,
+    EstaLogeadoService,
+    ApiAuthService
+
   ],
   //bootstrap: [AppComponent]
   bootstrap: [AppComponent]
